@@ -1,7 +1,7 @@
 import org.gradle.configurationcache.extensions.capitalized
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-group = "com.example" // TODO: Change this to your group
+group = "ru.rinuuri" // TODO: Change this to your group
 version = "1.0-SNAPSHOT" // TODO: Change this to your addon version
 
 val mojangMapped = project.hasProperty("mojang-mapped")
@@ -22,15 +22,19 @@ repositories {
 dependencies {
     paperweight.paperDevBundle(libs.versions.paper)
     implementation(libs.nova)
+    implementation(kotlin("script-runtime"))
 }
 
 addon {
-    id.set(project.name)
+    id.set("corgidash")
     name.set(project.name.capitalized())
     version.set(project.version.toString())
     novaVersion.set(libs.versions.nova)
-    main.set("com.example.ExampleAddon") // TODO: Change this to your main class
-    authors.add("ExampleAuthor") // TODO: Set your list of authors
+    main.set("ru.rinuuri.NovaCorgi") // TODO: Change this to your main class
+    authors.add("Rinuuri") // TODO: Set your list of authors
+    depend.add("machines")
+    depend.add("logistics")
+    depend.add("simple_upgrades")
 }
 
 remapStrings {
