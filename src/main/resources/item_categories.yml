@@ -1,9 +1,0 @@
-example_category:
-  name: "menu.machines.items.category.crafting"
-  priority: 0
-  items:
-    - corgidash:aluminum_ingot
-    - corgidash:steel_ingot
-    - corgidash:titanium_ingot
-    - corgidash:uraninum_ingot
-    - corgidash:plutonium_ingot

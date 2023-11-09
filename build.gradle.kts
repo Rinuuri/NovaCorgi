@@ -2,7 +2,7 @@ import org.gradle.configurationcache.extensions.capitalized
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 group = "ru.rinuuri" // TODO: Change this to your group
-version = "1.0-SNAPSHOT" // TODO: Change this to your addon version
+version = "1.0" // TODO: Change this to your addon version
 
 val mojangMapped = project.hasProperty("mojang-mapped")
 
@@ -31,9 +31,7 @@ addon {
     version.set(project.version.toString())
     novaVersion.set(libs.versions.nova)
     main.set("ru.rinuuri.NovaCorgi") // TODO: Change this to your main class
-    authors.add("Rinuuri") // TODO: Set your list of authors
-    depend.add("machines")
-    depend.add("logistics")
+    authors.add("Rinuuri") // TODO: Set your list of authorы
     depend.add("simple_upgrades")
 }
 

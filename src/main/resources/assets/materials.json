@@ -1,7 +1,18 @@
 {
-  "titanium_ingot": "item/titanium_ingot",
   "aluminum_ingot": "item/aluminum_ingot",
   "plutonium_ingot": "item/plutonium_ingot",
   "steel_ingot": "item/steel_ingot",
-  "uranium_ingot": "item/uranium_ingot"
+  "titanium_ingot": "item/titanium_ingot",
+  "uranium_ingot": "item/uranium_ingot",
+  "washer": {
+    "item": "block/washer_watered",
+    "block": {
+      "type": "solid",
+      "directions": "nesw",
+      "models": [
+        "block/washer_dry",
+        "block/washer_watered"
+      ]
+    }
+  }
 }
