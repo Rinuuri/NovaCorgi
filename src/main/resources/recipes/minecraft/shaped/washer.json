@@ -1,0 +1,16 @@
+{
+  "result": "corgidash:washer",
+  "amount": 1,
+  "shape": [
+    "igi",
+    "tfp",
+    "igi"
+  ],
+  "ingredients": {
+    "f": "machines:basic_machine_frame",
+    "i": "corgidash:aluminum_ingot",
+    "p": "machines:iron_plate",
+    "g": "machines:iron_gear",
+    "t": "logistics:basic_fluid_tank"
+  }
+}

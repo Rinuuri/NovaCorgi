@@ -1,0 +1,14 @@
+{
+  "result": "corgidash:sieve",
+  "amount": 1,
+  "shape": [
+    "pip",
+    "l l",
+    "l l"
+  ],
+  "ingredients": {
+    "i": "minecraft:iron_nugget",
+    "l": ["minecraft:oak_log","minecraft:birch_log","minecraft:dark_oak_log","minecraft:spruce_log","minecraft:acacia_log","minecraft:jungle_log","minecraft:cherry_log","minecraft:mangrove_log","minecraft:crimson_stem","minecraft:warped_stem","minecraft:bamboo_block"],
+    "p": ["minecraft:oak_planks","minecraft:birch_planks","minecraft:dark_oak_planks","minecraft:spruce_planks","minecraft:acacia_planks","minecraft:jungle_planks","minecraft:cherry_planks","minecraft:mangrove_planks","minecraft:crimson_planks","minecraft:warped_planks","minecraft:bamboo_planks"]
+  }
+}

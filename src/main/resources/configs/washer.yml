@@ -1,3 +1,4 @@
 capacity: 10000
 energy_per_tick: 100
 water_capacity: 10000
+water_consumption: 2

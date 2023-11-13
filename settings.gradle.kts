@@ -1,5 +1,6 @@
 rootProject.name = "corgidash" // TODO: Change this to your addon id
 
+
 dependencyResolutionManagement {
     repositories {
         mavenCentral()

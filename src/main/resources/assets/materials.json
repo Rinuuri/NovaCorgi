@@ -4,8 +4,9 @@
   "steel_ingot": "item/steel_ingot",
   "titanium_ingot": "item/titanium_ingot",
   "uranium_ingot": "item/uranium_ingot",
+  "sieve": "block/sieve",
   "washer": {
-    "item": "block/washer_watered",
+    "item": "block/washer_dry",
     "block": {
       "type": "solid",
       "directions": "nesw",
@@ -13,6 +14,13 @@
         "block/washer_dry",
         "block/washer_watered"
       ]
+    }
+  },
+  "gui_washer_progress": {
+    "item": {
+      "models": {
+        "item/gui/progress/washer/%s": [0, 12]
+      }
     }
   }
 }

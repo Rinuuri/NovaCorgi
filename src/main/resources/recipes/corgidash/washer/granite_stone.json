@@ -2,7 +2,7 @@
   "input": [
     "minecraft:cobblestone"
   ],
-  "random_results": [
+  "results": [
     ["nova:uranium_ingot",30],
     ["nova:titanium_ingot", 30],
     ["nova:aluminum_ingot", 30],
