@@ -5,5 +5,6 @@
   "item.corgidash.uranium_ingot": "Uranium ingot",
   "item.corgidash.plutonium_ingot": "Plutonium ingot",
   "block.corgidash.washer":"Washer",
-  "block.corgidash.sieve":"Sieve"
+  "block.corgidash.sieve":"Sieve",
+  "menu.corgidash.recipe.washer_sieve": "Washer/sieve"
 }

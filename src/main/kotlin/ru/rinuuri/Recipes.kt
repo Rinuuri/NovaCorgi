@@ -65,11 +65,11 @@ fun getWasherRecipeFor(input: ItemStack): WasherRecipe? {
 
 object WasherRecipeGroup : RecipeGroup<WasherRecipe>() {
     override val priority = 4
-    override val icon = Items.washer_item.basicClientsideProvider
+    override val icon = Items.sieve_item.basicClientsideProvider
     override val texture = GuiTextures.RECIPE_WASHER
     override fun createGui(recipe: WasherRecipe): Gui {
         val progressItem = GuiMaterials.WASHER_PROGRESS.createClientsideItemBuilder()
-        val translate = "menu.corgidash.recipe.washer"
+        val translate = "menu.corgidash.recipe.washer_sieve"
         
         progressItem.setDisplayName(TranslatableComponent(translate))
         

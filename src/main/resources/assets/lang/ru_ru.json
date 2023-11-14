@@ -5,5 +5,6 @@
   "item.corgidash.uranium_ingot": "Урановый слиток",
   "item.corgidash.plutonium_ingot": "Плутониевый слиток",
   "block.corgidash.washer":"Промывщик",
-  "block.corgidash.sieve":"Сито"
+  "block.corgidash.sieve":"Сито",
+  "menu.corgidash.recipe.washer_sieve": "Промывщик/сито"
 }
