@@ -1,18 +1,21 @@
 package ru.rinuuri
 
 import com.google.gson.JsonObject
-import net.md_5.bungee.api.chat.TranslatableComponent
 import ru.rinuuri.RecipeTypes.WASHER_RECIPE
 import net.minecraft.resources.ResourceLocation
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.RecipeChoice
+import ru.rinuuri.RecipeTypes.BLOOMERY_RECIPE
 import xyz.xenondevs.commons.gson.getArray
+import xyz.xenondevs.commons.gson.getString
 import xyz.xenondevs.invui.gui.Gui
 import xyz.xenondevs.invui.gui.ScrollGui
+import xyz.xenondevs.nova.data.recipe.MultiInputChoiceRecipe
 import xyz.xenondevs.nova.data.recipe.MultiResultRecipe
 import xyz.xenondevs.nova.data.recipe.NovaRecipe
 import xyz.xenondevs.nova.data.recipe.RecipeManager
 import xyz.xenondevs.nova.data.recipe.SingleInputChoiceRecipe
+import xyz.xenondevs.nova.data.recipe.SingleResultRecipe
 import xyz.xenondevs.nova.data.serialization.json.serializer.RecipeDeserializer
 import xyz.xenondevs.nova.data.serialization.json.serializer.RecipeDeserializer.Companion.getRecipeId
 import xyz.xenondevs.nova.ui.menu.item.recipes.createRecipeChoiceItem
@@ -68,10 +71,6 @@ object WasherRecipeGroup : RecipeGroup<WasherRecipe>() {
     override val icon = Items.sieve_item.basicClientsideProvider
     override val texture = GuiTextures.RECIPE_WASHER
     override fun createGui(recipe: WasherRecipe): Gui {
-        val progressItem = GuiMaterials.WASHER_PROGRESS.createClientsideItemBuilder()
-        val translate = "menu.corgidash.recipe.washer_sieve"
-        
-        progressItem.setDisplayName(TranslatableComponent(translate))
         
         return ScrollGui.items()
             .setStructure(
@@ -79,8 +78,46 @@ object WasherRecipeGroup : RecipeGroup<WasherRecipe>() {
                 ". . i . . . r . .",
                 ". . . . . . . . .")
             .addIngredient('i', createRecipeChoiceItem(recipe.input))
-            .addIngredient('p', progressItem)
             .addIngredient('r', createRecipeChoiceItem(recipe.results))
+            .build()
+    }
+    
+}
+
+
+class BloomeryRecipe(
+    override val inputs: List<RecipeChoice>,
+    override val id: ResourceLocation,
+    override val result: ItemStack
+) : NovaRecipe, SingleResultRecipe, MultiInputChoiceRecipe {
+    override val type = BLOOMERY_RECIPE
+}
+
+object BloomeryRecipeDeserializer : RecipeDeserializer<BloomeryRecipe> {
+    override fun deserialize(json: JsonObject, file: File): BloomeryRecipe {
+        val inputs: ArrayList<RecipeChoice> = ArrayList()
+        
+        for (result in json.getArray("inputs")) {
+            inputs.add(RecipeChoice.ExactChoice(ItemUtils.getItemBuilder(result.asString).get()))
+        }
+        
+        return BloomeryRecipe(inputs, getRecipeId(file), ItemUtils.getItemBuilder(json.getString("result")).get())
+    }
+}
+object BloomeryRecipeGroup : RecipeGroup<BloomeryRecipe>() {
+    override val priority = 3
+    override val icon = Items.bloomery_item.basicClientsideProvider
+    override val texture = GuiTextures.RECIPE_BLOOMERY
+    override fun createGui(recipe: BloomeryRecipe): Gui {
+        return ScrollGui.items()
+            .setStructure(
+                ". x x x x x x x .",
+                ". f . i . . r . .",
+                ". . . s . . . . .")
+            .addIngredient('f', createRecipeChoiceItem(Bloomery.getFuel()))
+            .addIngredient('i', createRecipeChoiceItem(recipe.inputs[0]))
+            .addIngredient('s', createRecipeChoiceItem(recipe.inputs[1]))
+            .addIngredient('r', recipe.result)
             .build()
     }
     

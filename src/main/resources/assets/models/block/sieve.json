@@ -1,5 +1,5 @@
 {
-	"credit": "CorgiDash mc.corgidash,ru",
+	"credit": "CorgiDash mc.corgidash.ru",
 	"parent": "nova:block/base",
 	"ambientocclusion": false,
 	"textures": {

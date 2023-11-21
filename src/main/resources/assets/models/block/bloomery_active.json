@@ -1,0 +1,9 @@
+{
+  "credit": "CorgiDash mc.corgidash.ru",
+  "parent": "corgidash:block/bloomery",
+  "ambientocclusion": true,
+  "texture_size": [64, 64],
+  "textures": {
+    "0": "corgidash:block/bloomery_active"
+  }
+}

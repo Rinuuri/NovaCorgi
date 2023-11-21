@@ -1,10 +1,50 @@
 {
   "aluminum_ingot": "item/aluminum_ingot",
+  "aluminum_plate": "item/aluminum_plate",
+  "aluminum_gear": "item/aluminum_gear",
+  "bauxit_dust": "item/bauxit_dust",
   "plutonium_ingot": "item/plutonium_ingot",
   "steel_ingot": "item/steel_ingot",
+  "steel_plate": "item/steel_plate",
+  "steel_gear": "item/steel_gear",
   "titanium_ingot": "item/titanium_ingot",
+  "titanium_plate": "item/titanium_plate",
+  "titanium_gear": "item/titanium_gear",
   "uranium_ingot": "item/uranium_ingot",
+  "bronze_gear": "item/bronze_gear",
+  "bronze_ingot": "item/bronze_ingot",
+  "bronze_plate": "item/bronze_plate",
+  "basalt_dust": "item/basalt_dust",
+  "copper_pickaxe": "item/copper_pickaxe",
+  "copper_axe": "item/copper_axe",
+  "copper_shovel": "item/copper_shovel",
+  "copper_hoe": "item/copper_hoe",
+  "copper_sword": "item/copper_sword",
+  "copper_shears": "item/copper_shears",
+  "bronze_pickaxe": "item/bronze_pickaxe",
+  "bronze_axe": "item/bronze_axe",
+  "bronze_shovel": "item/bronze_shovel",
+  "bronze_hoe": "item/bronze_hoe",
+  "bronze_sword": "item/bronze_sword",
   "sieve": "block/sieve",
+  "bloomery": {
+    "item":"block/bloomery",
+    "block": {
+      "models": [
+        "block/bloomery",
+        "block/bloomery_active"
+      ]
+    }
+  },
+  "bloomery_chimney": {
+    "item":"block/bloomery_chimney",
+    "block": {
+      "models": [
+        "block/bloomery_chimney",
+        "block/bloomery_chimney_active"
+      ]
+    }
+  },
   "washer": {
     "item": "block/washer_dry",
     "block": {
@@ -16,10 +56,40 @@
       ]
     }
   },
+  "bronze_helmet": {
+    "item": "item/armor/bronze_helmet",
+    "armor": "bronze"
+  },
+  "bronze_chestplate": {
+    "item": "item/armor/bronze_chestplate",
+    "armor": "bronze"
+  },
+  "bronze_leggings": {
+    "item": "item/armor/bronze_leggings",
+    "armor": "bronze"
+  },
+  "bronze_boots": {
+    "item": "item/armor/bronze_boots",
+    "armor": "bronze"
+  },
   "gui_washer_progress": {
     "item": {
       "models": {
         "item/gui/progress/washer/%s": [0, 12]
+      }
+    }
+  },
+  "gui_bloomery_progress": {
+    "item": {
+      "models": {
+        "item/gui/progress/bloomery/progress/%s": [0, 16]
+      }
+    }
+  },
+  "gui_bloomery_temperature": {
+    "item": {
+      "models": {
+        "item/gui/progress/bloomery/temperature/%s": [0, 16]
       }
     }
   }
