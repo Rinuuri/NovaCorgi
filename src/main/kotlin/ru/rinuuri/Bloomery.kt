@@ -81,8 +81,6 @@ class Bloomery(blockState: NovaTileEntityState) : TileEntity(blockState) {
                     if (input2.test(recipeInput)) return recipe
                 }
             }
-        }
-        for (recipe in RecipeManager.novaRecipes[RecipeTypes.BLOOMERY_RECIPE]!!.values.asSequence().map { it as BloomeryRecipe }){
             for (input in recipe.inputs) if (input.test(recipeInput)) {
                 var inputs = recipe.inputs
                 inputs = inputs.take(inputs.indexOf(input))
@@ -90,6 +88,7 @@ class Bloomery(blockState: NovaTileEntityState) : TileEntity(blockState) {
                     if (input2.test(recipeInput2)) return recipe
                 }
             }
+            if (recipe.inputs[0] == recipe.inputs[1] && recipe.inputs[0].test(recipeInput) && recipe.inputs[0].test(recipeInput2)) return recipe
         }
         return null
     }

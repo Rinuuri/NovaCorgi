@@ -1,0 +1,9 @@
+{
+  "parent": "nova:block/block",
+	"ambientocclusion": false,
+	"textures": {
+		"0": "corgidash:block/bronze_block",
+		"particle": "corgidash:block/bronze_block",
+		"particles": "corgidash:block/bronze_block"
+	}
+}

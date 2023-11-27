@@ -26,6 +26,10 @@
   "bronze_shovel": "item/bronze_shovel",
   "bronze_hoe": "item/bronze_hoe",
   "bronze_sword": "item/bronze_sword",
+  "copper_nugget": "item/copper_nugget",
+  "aluminum_nugget": "item/aluminum_nugget",
+  "bronze_nugget": "item/bronze_nugget",
+  "finery_iron": "item/finery_iron",
   "sieve": "block/sieve",
   "bloomery": {
     "item":"block/bloomery",
@@ -54,6 +58,20 @@
         "block/washer_dry",
         "block/washer_watered"
       ]
+    }
+  },
+  "bronze_block": {
+    "item": "block/bronze_block",
+    "block": {
+      "type": "solid",
+      "priority": 200
+    }
+  },
+  "aluminum_block": {
+    "item": "block/aluminum_block",
+    "block": {
+      "type": "solid",
+      "priority": 201
     }
   },
   "bronze_helmet": {

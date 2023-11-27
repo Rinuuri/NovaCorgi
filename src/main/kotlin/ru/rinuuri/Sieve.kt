@@ -46,7 +46,7 @@ class Sieve(blockState: NovaTileEntityState) : TileEntity(blockState) {
     
     private fun handleInputUpdate(event: ItemPreUpdateEvent) {
         event.isCancelled = event.newItem != null && getWasherRecipeFor(event.newItem!!) == null
-        if (!event.isCancelled && event.previousItem != null && event.previousItem!!.type != event.newItem!!.type)  currentRecipe = getWasherRecipeFor(event.newItem!!)
+        if (!event.isCancelled && event.newItem != null && event.previousItem != null && event.previousItem!!.type != event.newItem!!.type)  currentRecipe = getWasherRecipeFor(event.newItem!!)
     }
     
     private fun handleOutputUpdate(event: ItemPreUpdateEvent) {

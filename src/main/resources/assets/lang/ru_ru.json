@@ -26,9 +26,21 @@
   "item.corgidash.bronze_hoe": "Бронзовая Мотыга",
   "item.corgidash.bronze_shovel": "Бронзовая Лопата",
   "item.corgidash.bronze_sword": "Бронзовые Ножницы",
+  "item.corgidash.bronze_helmet": "Бронзовый Шлем",
+  "item.corgidash.bronze_chestplate": "Бронзовый Нагрудник",
+  "item.corgidash.bronze_leggings": "Бронзовые Поножи",
+  "item.corgidash.bronze_boots": "Бронзовые Ботинки",
   "block.corgidash.washer":"Промывщик",
   "block.corgidash.sieve":"Сито",
   "block.corgidash.bloomery":"Сыродутная печь",
+  "block.corgidash.bronze_block":"Блок Бронзы",
+  "block.corgidash.aluminum_block":"Блок Алюминия",
+  "block.corgidash.copper_nugget":"Кусочек Меди",
+  "block.corgidash.aluminum_nugget":"Кусочек Алюминия",
+  "block.corgidash.bronze_nugget":"Кучочек Бронзы",
+  "item.corgidash.finery_iron":"Железная Крица",
   "block.corgidash.bloomery_chimney":"Дымоход сыродутной печи",
-  "menu.corgidash.recipe.washer_sieve": "Промывщик/сито"
+  "menu.corgidash.recipe.washer_sieve": "Промывщик/сито",
+  "menu.corgidash.energy":"Энергия",
+  "menu.corgidash.donate":"Донат"
 }

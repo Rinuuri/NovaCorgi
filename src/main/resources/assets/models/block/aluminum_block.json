@@ -1,0 +1,7 @@
+{
+  "parent": "nova:block/block",
+	"ambientocclusion": false,
+	"textures": {
+		"0": "corgidash:block/aluminum_block"
+	}
+}

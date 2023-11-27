@@ -26,9 +26,21 @@
   "item.corgidash.bronze_hoe": "Bronze Hoe",
   "item.corgidash.bronze_shovel": "Bronze Shovel",
   "item.corgidash.bronze_sword": "Bronze Sword",
+  "item.corgidash.bronze_helmet": "Bronze Helmet",
+  "item.corgidash.bronze_chestplate": "Bronze Chestplate",
+  "item.corgidash.bronze_leggings": "Bronze Leggings",
+  "item.corgidash.bronze_boots": "Bronze Boots",
   "block.corgidash.washer":"Washer",
   "block.corgidash.sieve":"Sieve",
   "block.corgidash.bloomery":"Bloomery",
+  "block.corgidash.bronze_block":"Bronze Block",
+  "block.corgidash.aluminum_block":"Aluminum Block",
+  "item.corgidash.copper_nugget":"Copper Nugget",
+  "item.corgidash.aluminum_nugget":"Aluminum Nugget",
+  "item.corgidash.bronze_nugget":"Bronze Nugget",
+  "item.corgidash.finery_iron":"Finery Iron",
   "block.corgidash.bloomery_chimney":"Bloomery chimney",
-  "menu.corgidash.recipe.washer_sieve": "Washer/sieve"
+  "menu.corgidash.recipe.washer_sieve": "Washer/sieve",
+  "menu.corgidash.energy":"Power",
+  "menu.corgidash.donate":"Donate"
 }

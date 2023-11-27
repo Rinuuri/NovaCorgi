@@ -33,7 +33,7 @@ private val MAX_ENERGY = WASHER.config.entry<Long>("capacity")
 private val ENERGY_PER_TICK = WASHER.config.entry<Long>("energy_per_tick")
 private val WATER_CAPACITY = WASHER.config.entry<Long>("water_capacity")
 private val WATER_CONSUMPTION = WASHER.config.entry<Long>("water_consumption")
-private val WASH_TIME = 100
+private val WASH_TIME = 50
 class Washer(blockState: NovaTileEntityState) : NetworkedTileEntity(blockState) {
     
     private var timeLeft by storedValue("wash_time_left") { 0 }
