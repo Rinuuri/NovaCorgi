@@ -5,6 +5,7 @@ import ru.rinuuri.RecipeTypes.WASHER_RECIPE
 import net.minecraft.resources.ResourceLocation
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.RecipeChoice
+import ru.rinuuri.RecipeTypes.BLAST_FURNACE_RECIPE
 import ru.rinuuri.RecipeTypes.BLOOMERY_RECIPE
 import xyz.xenondevs.commons.gson.getArray
 import xyz.xenondevs.commons.gson.getString
@@ -120,5 +121,40 @@ object BloomeryRecipeGroup : RecipeGroup<BloomeryRecipe>() {
             .addIngredient('r', recipe.result)
             .build()
     }
-    
+}
+
+class BlastFurnaceRecipe(
+    override val inputs: List<RecipeChoice>,
+    override val id: ResourceLocation,
+    override val result: ItemStack
+) : NovaRecipe, SingleResultRecipe, MultiInputChoiceRecipe {
+    override val type = BLAST_FURNACE_RECIPE
+}
+
+object BlastFurnaceRecipeDeserializer : RecipeDeserializer<BlastFurnaceRecipe> {
+    override fun deserialize(json: JsonObject, file: File): BlastFurnaceRecipe {
+        val inputs: ArrayList<RecipeChoice> = ArrayList()
+
+        for (result in json.getArray("inputs")) {
+            inputs.add(RecipeChoice.ExactChoice(ItemUtils.getItemBuilder(result.asString).get()))
+        }
+        
+        return BlastFurnaceRecipe(inputs, getRecipeId(file), ItemUtils.getItemBuilder(json.getString("result")).get())
+    }
+}
+object BlastFurnaceRecipeGroup : RecipeGroup<BlastFurnaceRecipe>() {
+    override val priority = 5
+    override val icon = Items.blast_furnace_item.basicClientsideProvider
+    override val texture = GuiTextures.RECIPE_BLAST_FURNACE
+    override fun createGui(recipe: BlastFurnaceRecipe): Gui {
+        return ScrollGui.items()
+            .setStructure(
+                ". x x x x x x x .",
+                ". . . i . . r . .",
+                ". . . s . . . . .")
+            .addIngredient('i', createRecipeChoiceItem(recipe.inputs[0]))
+            .addIngredient('s', createRecipeChoiceItem(recipe.inputs[1]))
+            .addIngredient('r', recipe.result)
+            .build()
+    }
 }

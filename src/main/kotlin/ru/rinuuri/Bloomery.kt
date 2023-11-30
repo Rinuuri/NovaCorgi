@@ -71,28 +71,6 @@ class Bloomery(blockState: NovaTileEntityState) : TileEntity(blockState) {
         if (tl != null) timeLeft = tl
     }
     
-    private fun getBloomeryRecipeFor(recipeInput: ItemStack?, recipeInput2: ItemStack?) : BloomeryRecipe?{
-        if (recipeInput == null || recipeInput2 == null) return null
-        for (recipe in RecipeManager.novaRecipes[RecipeTypes.BLOOMERY_RECIPE]!!.values.asSequence().map { it as BloomeryRecipe }){
-            for (input in recipe.inputs) if (input.test(recipeInput2)) {
-                var inputs = recipe.inputs
-                inputs = inputs.take(inputs.indexOf(input))
-                for (input2 in inputs){
-                    if (input2.test(recipeInput)) return recipe
-                }
-            }
-            for (input in recipe.inputs) if (input.test(recipeInput)) {
-                var inputs = recipe.inputs
-                inputs = inputs.take(inputs.indexOf(input))
-                for (input2 in inputs){
-                    if (input2.test(recipeInput2)) return recipe
-                }
-            }
-            if (recipe.inputs[0] == recipe.inputs[1] && recipe.inputs[0].test(recipeInput) && recipe.inputs[0].test(recipeInput2)) return recipe
-        }
-        return null
-    }
-    
     private fun isIngredient(recipeInput: ItemStack) : Boolean{
         for (recipe in RecipeManager.novaRecipes[RecipeTypes.BLOOMERY_RECIPE]!!.values.asSequence().map { it as BloomeryRecipe }){
             for (input in recipe.inputs) if (input.test(recipeInput)) {
@@ -124,13 +102,15 @@ class Bloomery(blockState: NovaTileEntityState) : TileEntity(blockState) {
         }
     ), 10)
     
-    override fun handleTick() {
-        
+    override fun handleAsyncTick() {
         if (updateInv){
             updateInv = false
             currentRecipe = getBloomeryRecipeFor(inputInv[0], inputInv[1])
         }
-        
+        menuContainer.forEachMenu(BloomeryMenu::updateProgress)
+    }
+    
+    override fun handleTick() {
         if (tempTick > 0) tempTick -=1
         if (!fuelInv.isEmpty){
             if (temperature <= REQ_TEMP.value) temperature += 1
@@ -166,8 +146,6 @@ class Bloomery(blockState: NovaTileEntityState) : TileEntity(blockState) {
                 timeLeft = BLOOM_TIME.value.toFloat()
             }
         }
-       
-        menuContainer.forEachMenu(BloomeryMenu::updateProgress)
     }
     
     override fun saveData() {
@@ -205,6 +183,28 @@ class Bloomery(blockState: NovaTileEntityState) : TileEntity(blockState) {
         }
     }
     companion object {
+        public fun getBloomeryRecipeFor(recipeInput: ItemStack?, recipeInput2: ItemStack?) : BloomeryRecipe?{
+            if (recipeInput == null || recipeInput2 == null) return null
+            for (recipe in RecipeManager.novaRecipes[RecipeTypes.BLOOMERY_RECIPE]!!.values.asSequence().map { it as BloomeryRecipe }){
+                for (input in recipe.inputs) if (input.test(recipeInput2)) {
+                    var inputs = recipe.inputs
+                    inputs = inputs.take(inputs.indexOf(input))
+                    for (input2 in inputs){
+                        if (input2.test(recipeInput)) return recipe
+                    }
+                }
+                for (input in recipe.inputs) if (input.test(recipeInput)) {
+                    var inputs = recipe.inputs
+                    inputs = inputs.take(inputs.indexOf(input))
+                    for (input2 in inputs){
+                        if (input2.test(recipeInput2)) return recipe
+                    }
+                }
+                if (recipe.inputs[0] == recipe.inputs[1] && recipe.inputs[0].test(recipeInput) && recipe.inputs[0].test(recipeInput2)) return recipe
+            }
+            return null
+        }
+        
         private val fuel: HashMap<Material, Int> = hashMapOf(
             Material.COAL to 100,
             Material.COAL_BLOCK to 1000,

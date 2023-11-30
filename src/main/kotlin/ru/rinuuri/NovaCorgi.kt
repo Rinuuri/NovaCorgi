@@ -1,7 +1,6 @@
 package ru.rinuuri
 
 import org.bukkit.Material
-import org.bukkit.Sound
 import org.bukkit.inventory.EquipmentSlot
 import xyz.xenondevs.nova.addon.Addon
 import xyz.xenondevs.nova.addon.registry.BlockRegistry
@@ -25,16 +24,7 @@ import xyz.xenondevs.nova.ui.item.ProgressItem
 import xyz.xenondevs.nova.ui.overlay.character.gui.GuiTexture
 import xyz.xenondevs.nova.world.block.sound.SoundGroup
 object NovaCorgi : Addon() {
-    
-    override fun init() {
-        // Called when the addon is initialized.
-    }
-    
     override fun onEnable() {
-    }
-    
-    override fun onDisable() {
-        // Called when the addon is disabled.
     }
 }
 
@@ -60,6 +50,7 @@ object Items : ItemRegistry by NovaCorgi.registry {
     val aluminum_nugget = registerItem("aluminum_nugget")
     val bronze_nugget = registerItem("bronze_nugget")
     val finery_iron = registerItem("finery_iron")
+    val coal_coke = registerItem("coal_coke")
     
     val bronze_helmet = registerItem("bronze_helmet", Wearable(EquipmentSlot.HEAD, "minecraft:item.armor.equip_gold"), Damageable)
     val bronze_chestplate = registerItem("bronze_chestplate", Wearable(EquipmentSlot.CHEST, "minecraft:item.armor.equip_gold"), Damageable)
@@ -85,14 +76,17 @@ object Items : ItemRegistry by NovaCorgi.registry {
     val bloomery_chimney_item = registerItem(Blocks.BLOOMERY_CHIMNEY)
     val bronze_block_item = registerItem(Blocks.BRONZE_BLOCK)
     val aluminum_block_item = registerItem(Blocks.ALUMINUM_BLOCK)
+    val blast_furnace_item = registerItem(Blocks.BLAST_FURNACE)
 }
 object GuiTextures {
     val RECIPE_WASHER = GuiTexture.of(NovaCorgi, "recipe_washer")
     val RECIPE_BLOOMERY = GuiTexture.of(NovaCorgi, "recipe_bloomery")
+    val RECIPE_BLAST_FURNACE = GuiTexture.of(NovaCorgi, "recipe_blast_furnace")
 }
 @Init(stage = InitStage.PRE_PACK)
 object Blocks : BlockRegistry by NovaCorgi.registry {
     private val STONE = BlockOptions(3.0, VanillaToolCategories.PICKAXE, VanillaToolTiers.WOOD, true, SoundGroup.STONE, Material.NETHERITE_BLOCK)
+    private val COPPER = BlockOptions(4.0, VanillaToolCategories.PICKAXE, VanillaToolTiers.STONE, true, SoundGroup.METAL)
     private val BRONZE = BlockOptions(6.0, VanillaToolCategories.PICKAXE, VanillaToolTiers.IRON, true, SoundGroup.METAL)
     private val SIEVE_OPTIONS = BlockOptions(1.3, VanillaToolCategories.AXE, VanillaToolTiers.WOOD, false, SoundGroup.WOOD, Material.OAK_LOG)
     private val BLOOMERY_OPTIONS = BlockOptions(3.0, VanillaToolCategories.PICKAXE, VanillaToolTiers.STONE, true, SoundGroup.NETHER_BRICKS, Material.BRICKS)
@@ -100,8 +94,12 @@ object Blocks : BlockRegistry by NovaCorgi.registry {
     val SIEVE = tileEntity("sieve", ::Sieve).blockOptions(SIEVE_OPTIONS).register()
     val BLOOMERY = tileEntity("bloomery", ::Bloomery).blockOptions(BLOOMERY_OPTIONS).properties(Directional.NORMAL).register()
     val BLOOMERY_CHIMNEY = block("bloomery_chimney").blockOptions(BLOOMERY_OPTIONS).properties(Directional.NORMAL).register()
+    val BLAST_FURNACE = tileEntity("blast_furnace", ::BlastFurnace).blockOptions(BRONZE).properties(Directional.NORMAL).register()
+    
     val BRONZE_BLOCK = block("bronze_block").blockOptions(BRONZE).register()
-    val ALUMINUM_BLOCK = block("aluminum_block").blockOptions(BRONZE).register()
+    val ALUMINUM_BLOCK = block("aluminum_block").blockOptions(COPPER).register()
+    
+    val MACHINE = block("machine").blockOptions(BRONZE).behaviors(Machine).register()
 }
 @Init(stage = InitStage.PRE_PACK)
 object GuiMaterials : ItemRegistry by NovaCorgi.registry {
@@ -113,6 +111,7 @@ object GuiMaterials : ItemRegistry by NovaCorgi.registry {
 object RecipeTypes : RecipeTypeRegistry by NovaCorgi.registry {
     val WASHER_RECIPE = registerRecipeType("washer", WasherRecipe::class, WasherRecipeGroup, WasherRecipeDeserializer)
     val BLOOMERY_RECIPE = registerRecipeType("bloomery", BloomeryRecipe::class, BloomeryRecipeGroup, BloomeryRecipeDeserializer)
+    val BLAST_FURNACE_RECIPE = registerRecipeType("blast_furnace", BlastFurnaceRecipe::class, BlastFurnaceRecipeGroup, BlastFurnaceRecipeDeserializer)
 }
 
 class BloomeryProgressItem : ProgressItem(GuiMaterials.BLOOMERY_PROGRESS, 16)

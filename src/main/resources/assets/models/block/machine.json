@@ -1,0 +1,7 @@
+{
+  "parent": "machines:block/machine",
+  "ambientocclusion": false,
+  "textures": {
+    "front": "machines:block/machine_side"
+  }
+}

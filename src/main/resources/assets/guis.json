@@ -1,4 +1,5 @@
 {
   "recipe_washer": "gui/recipe/washer",
-  "recipe_bloomery": "gui/recipe/bloomery"
+  "recipe_bloomery": "gui/recipe/bloomery",
+  "recipe_blast_furnace": "gui/recipe/blast_furnace"
 }

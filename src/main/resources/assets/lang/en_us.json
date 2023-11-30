@@ -39,7 +39,9 @@
   "item.corgidash.aluminum_nugget":"Aluminum Nugget",
   "item.corgidash.bronze_nugget":"Bronze Nugget",
   "item.corgidash.finery_iron":"Finery Iron",
+  "item.corgidash.coal_coke":"Coal Coke",
   "block.corgidash.bloomery_chimney":"Bloomery chimney",
+  "block.corgidash.blast_furnace":"Blast Furnace",
   "menu.corgidash.recipe.washer_sieve": "Washer/sieve",
   "menu.corgidash.energy":"Power",
   "menu.corgidash.donate":"Donate"

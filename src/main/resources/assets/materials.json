@@ -30,6 +30,7 @@
   "aluminum_nugget": "item/aluminum_nugget",
   "bronze_nugget": "item/bronze_nugget",
   "finery_iron": "item/finery_iron",
+  "coal_coke": "item/coal_coke",
   "sieve": "block/sieve",
   "bloomery": {
     "item":"block/bloomery",
@@ -57,6 +58,26 @@
       "models": [
         "block/washer_dry",
         "block/washer_watered"
+      ]
+    }
+  },
+  "machine": {
+    "block": {
+      "type": "solid",
+      "directions": "n",
+      "models": [
+        "block/machine"
+      ]
+    }
+  },
+  "blast_furnace": {
+    "item": "block/blast_furnace_off",
+    "block": {
+      "type": "solid",
+      "directions": "nesw",
+      "models": [
+        "block/blast_furnace_off",
+        "block/blast_furnace_on"
       ]
     }
   },
